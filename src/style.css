@@ -32,6 +32,26 @@ img{
     max-width: 100%;
     height: auto;
 }
+
+.btn-primary{
+    padding: 8px;
+    border: none;
+    background-color: var(--first-color-dark);
+    color: white;
+    font-weight: 400;
+    border-radius: 8px;
+}
+.btn-secondary{
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: white;
+    color:black;
+    font-weight: 400;
+}
+
+
+
 /*========== CLASS CSS ==========*/
 .section{
     padding: 4rem 0 2rem;
@@ -87,13 +107,14 @@ img{
 @media screen and (max-width: 768px){
     .nav__menu{
       position: fixed;
-      top: -100%;
-      left: 0;
-      width: 100%;
+      top: -200%;
+      right: 0;
+      width: 50%;
+      height: 20%;
       padding: 1.5rem 0 1rem;
       text-align: center;
-      background-color: var(--first-color);
-      transition: .4s;
+      background-color: rgb(248, 248, 248);
+      transition: 0.8s;
       box-shadow: 0 4px 4px rgba(0,0,0,.1);
       border-radius: 0 0 1rem 1rem;
       z-index: var(--z-fixed);
@@ -103,12 +124,13 @@ img{
   }
 .nav__item{
     margin-bottom: var(--mb-2);
+    font-weight: 900;
 }
 
 .nav__link,.nav__logo,.nav__icons,.nav__menu{
     padding-top: 10px;
     color:var(--text-color);
-    font-weight: var(--font-medium);
+    font-weight: 900;
 }
 .nav__icons{
     text-align: center;
@@ -118,6 +140,7 @@ img{
 }
 .nav__link{
     transition: .4s;
+    font-weight: 900;
 }
 
 .nav__toggle,.nav__cart,.nav__user{
@@ -139,17 +162,163 @@ img{
 
 /* hero */
 
+.hero{
+    /* border: 1px solid red; */
+    height : 700px;
+    background-color: var(--first-color);
+    display: flex;
+    align-items: center;
+}
 
+.hero2{
+    /* border:2px solid black; */
+    height : 650px;
+    position: absolute;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.part{
+    /* border:3px solid green; */
+    width: auto;
+    height: 100%;
+    
+}
+.div1{
+    width:auto;
+    height: 59%;
+}
+
+
+.greetings{
+    font-size: 13px;
+    color:  var(--text-color);
+    font-weight: normal;
+}
+.sub-headings{
+    padding-top: 15px;
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: 900;
+}
+.sub-text{
+    color:var(--text-color);
+    padding-top: 10px;
+    color:#7b7a7a;
+    
+}
+.btn-grp{
+    padding-top: 10px;
+}
+
+.btn-primary{
+    margin-right: 10px;
+}
+
+/* hero right side */
+.div2{
+    position: relative;    
+    aspect-ratio: 10/11;
+}
+.food-img {
+    position: absolute;
+    width: 60%;
+
+  }
+  
+.food-1{
+    top:  25%;
+    left: -4%;
+    animation: scaleUp 3s ease-in-out infinite;
+  }
+  
+  .food-2 {
+    top:    0;
+    right: -8%;
+    animation: scaleUp 2s ease-in-out infinite;
+  }
+  
+  .food-3 {
+    bottom: -15%;
+    right:  -4%;
+    animation: scaleUp 4s ease-in-out infinite;
+  }
+  
+  .dialog {
+    position: absolute;
+    filter: drop-shadow(0px 2px 46px hsla(0, 0%, 0%, 0.4));
+  }
+  
+  .dialog-1 {
+    top:   10%;
+    right: 15%;
+  }
+  
+  .dialog-2 {
+    bottom: 20%;
+    right:   5%;
+  }
+  
+  .shape {
+    position: absolute;
+    filter: drop-shadow(0px 3px 6px hsla(0, 0%, 0%, 0.1));
+  }
+  
+  .shape-1 {
+    top:  0;
+    left: 10%;
+    animation: scaleUp 2s 3s ease-in-out infinite;
+  }
+  
+  .shape-2 {
+    right: 0;
+    top:  55%;
+    animation: scaleUp 3s 4s ease-in-out infinite;
+  }
+  
+  .shape-3 {
+    bottom: 5%;
+    left:   5%;
+    animation: scaleUp 3s 1s ease-in-out infinite;
+  }
+  
+  .shape-4 {
+    top:  35%;
+    right: 0;
+    animation: moveUp 3s 1s ease-in-out infinite;
+  }
+  
+  .shape-5 {
+    top: 60%;
+    left: 0;
+    animation: moveUp 3s ease-in-out infinite;
+  }
+  @keyframes scaleUp {
+  
+    0%,
+    100% { transform: translateY(0) scale(1); }
+  
+    50% { transform: translateY(-5px) scale(1.05);}
+  
+  }
+  @keyframes moveUp {
+  
+    0%,
+    100% { transform: translateY(0); }
+    20%  { transform: translateY(-3px); }
+    50%  { transform: translateY(-8px); }
+  
+  }
 
   
 
-
-
-
-
-
-
 /* media queries */
+
+/* tablets */
+
 @media screen and (min-width: 768px){
     body{
       margin: 0;
@@ -174,8 +343,12 @@ img{
     .nav__toggle{
       display: none;
     }  
+
   }
 
+
+
+  /* large desktops */
   @media screen and (min-width: 960px){
     
 
@@ -186,8 +359,117 @@ img{
         margin-right: auto;
     }
 
+    .nav__icons div{
+        font-size: 30px;
+        justify-content: space-between;
+    }
+
     
-  
+    .hero2{
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 1px;
+        grid-row-gap: 0px;
+    }
+    
+    .div1 { 
+        grid-area: 1 / 1 / 8 / 8; 
+        width: 55%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .div2 { grid-area: 1 / 5 / 9 /12; 
+        width: 100%;
+        height: 85%;
+        aspect-ratio: 10/11;
+    }
+
+
+    
+    .greetings{
+        margin-top: 130px;
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    .sub-headings{
+        margin-top: 60px;
+        font-size: 48px;
+        line-height: 3rem;
+        font-weight: 900;
+    }
+
+    .sub-text{
+
+        margin-top: 18px;
+        font-size: 22px;
+        font-weight: 500;
+    }
+    .btn-grp{
+        margin-top: 30px;
+        
+    }
+
+    .btn-primary{
+        padding: 14px;
+        font-size: 14px;
+        margin-right: 30px;
+    }
+
+    .btn-secondary{
+        padding: 14px;
+        font-size: 14px;
+    }
+    .food-img{
+        width: 320px;
+    }
+    .food-1{
+        top: 30%;
+        left: 12%;
+    }
+    .food-2{
+        top: 0;
+        right: 16%;
+    }
+
+    .food-3{
+        top:58%;
+        right: 14%;
+    }
+
+    .dialog-1{
+        top: 10%;
+        right: 28%;
+    }
+    .dialog-2{
+        right: 35%;
+    }
+    .shape-1{
+        top: 20%;
+        right: 50%;
+    }
+
+    .shape-2{
+        right: 8%;
+        width: 30px;
+    }
+    .shape-3{
+        left: 20%;
+    }
+    .shape-4{
+        top:40%;
+        width: 70px;
+        right: 18%;
+    }
+    .shape-5{
+        top: 40%;
+        width: 90px;
+        left: 8%;
+    }
+
     
   }
   
