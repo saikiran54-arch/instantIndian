@@ -329,9 +329,203 @@ img{
   }
 
   /* Menu  - home page */
+  .menu{
+    /* border: 1px solid black; */
+
+    max-width: 1440px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+.header-menu{
+    text-align: center;
+    margin-top:20px;
+    font-size: 44px;
+    color: var(--text-color);
+}
+
+.menu-container{
+    /* border: 2px solid black; */
+    max-width: 1440px;
+    margin:20px auto;
+    padding :10px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    /* grid-template-rows: repeat(2,1fr); */
+    gap:20px;
+
+}
+
+.card{
+    background-color: white;
+    border-radius:10px;
+    padding:20px;
+    /* box-shadow: rgba(17,12,46,0.15) 0px 48px 100px 0; */
+    margin-bottom: 10px;
+}
+.card__header{
+    display: flex;
+    font-size: 26px;
+    font-weight: bold;
+}
+.card-1{
+    /* background: hsl(253, 55%, 52%); */
+    background: var(--first-color);
+}
+.card-1 .card__header{
+  font-weight: 900;
+  color: var(--text-color);
+  font-size: 30px;
+}
+.card-1 .card__lead{
+  padding-top: 20px;
+  opacity: 70%;
+  font-weight: 200;
+}
+.card-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-2 img{
+    max-width:1024px;
+    height: 500px;
+}
+.slider-1{
+  width: 100%;
+  height: 350px;
+  background: url("/img/3-1.jpeg");
+  background-size: cover;
+  animation: slide_1 20s infinite ease-in-out;
+}
+.slider{
+    width: 350px;
+    height: 500px;
+    background: url("/img/97756649-indian-street-food-pav-bhaji-vegetables-close-up-in-a-bowl-on-the-table-vertical-top-view-from-above.webp");
+    background-size: cover;
+    animation:slide 20s infinite ease-in-out;
+}
+.card-2,.card-3{
+  padding: 0;
+}
+
+@keyframes slide{
+
+    25%{
+        background: url("/img/129387792-healthy-oatmeal-served-with-berries-chocolate-chips-almonds-and-honey-over-a-marble-table-background.webp");
+        background-size: cover;
+    }
+    50%{
+        background: url("/img/97756649-indian-street-food-pav-bhaji-vegetables-close-up-in-a-bowl-on-the-table-vertical-top-view-from-above.webp");
+        background-size: cover;
+    }
+    75%{
+        background: url("/img/vertical-shot-traditional-indian-paneer-butter-masala-cheese-cottage-curry-black-surface_181624-32001.webp");
+        background-size: cover;
+    }
+    100%{
+        background: url("/img/vertical-shot-vegetable-curry-with-cauliflower-beans-corn-spicy-pepper-lime_181624-31901.webp");
+        background-size: cover;
+    }
+
+}
+
+@keyframes slide_1{
+
+  25%{
+      background: url("/img/3-2.jpeg");
+      background-size: cover;
+  }
+  50%{
+      background: url("/img/3-3.webp");
+      background-size: cover;
+  }
+  75%{
+      background: url("/img/3-4.jpeg");
+      background-size: cover;
+  }
+  100%{
+      background: url("/img/3-5.jpeg");
+      background-size: cover;
+  }
+
+}
+
+.card-3{
+    /* background: hsl(253, 55%, 52%); */
+    /* color:white; */
+}
+.card-4{
+    background-color: var(--first-color);
+}
+.card__lead{
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.card:nth-of-type(1){
+    grid-column: 1/4;
+}
+.card:nth-of-type(2){
+    grid-column: 4/5;
+    grid-row: 1/3;
+}
+.card:nth-of-type(3){
+  grid-column: 1/3;
+  
+}
+
+.card:nth-of-type(4){
+    grid-column: 3/4;
+}
   
 
+.order-button button{
+  align-self: center;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 20px;
+  background-color: var(--first-color-dark);
+  color: white;
+  cursor: pointer;
+  
+}
 
+.order-button :hover{
+
+}
+
+@media (max-width:768px){
+  .header-menu{
+    font-size: 24px;
+  }
+  .menu-container{
+      width: 100%;
+      grid-template-columns: 1fr;
+      
+      overflow-x: hidden;
+      
+  }
+  .card{
+    width: 80%;
+  }
+  .card:nth-of-type(1){
+      grid-column: 1;
+  }
+  .card:nth-of-type(2){
+      grid-column: 1;
+      grid-row: 5;
+  }
+  .card:nth-of-type(4){
+      grid-column: 1;
+      grid-row:4;
+  }
+}
 
 
 
