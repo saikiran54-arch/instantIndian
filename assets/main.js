@@ -87,3 +87,33 @@ function initParadoxWay() {
 $(document).ready(function () {
     initParadoxWay();
 });
+
+
+// insiprational menu
+let brand_item = document.getElementById('brand_item');
+let btn_brands_left = document.getElementById('btn_brands_left');
+let btn_brands_right = document.getElementById('btn_brands_right');
+ 
+btn_brands_left.addEventListener('click' , () => {
+brand_item.scrollLeft += 170;
+ 
+    if (brand_item.scrollLeft > 0) {
+        btn_brands_right.style.display = "flex";
+    } else {
+        btn_brands_right.style.display = "none";
+    }
+    if (brand_item.scrollLeft > 800) {
+        btn_brands_left.style.display = "none";
+    }else {
+        btn_brands_left.style.display = "flex";
+    }
+})
+btn_brands_right.addEventListener('click' , () => {
+    brand_item.scrollLeft -= 170;
+    btn_brands_left.style.display = "flex";
+    if (brand_item.scrollLeft > 0) {
+        btn_brands_right.style.display = "flex";
+    } else {
+        btn_brands_right.style.display = "none";
+    }
+})
