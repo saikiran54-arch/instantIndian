@@ -23,3 +23,14 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
+
+// swiper products
+let swiperProducts = new Swiper(".products__container", {
+    spaceBetween: 30,
+    loop: 'true',
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});

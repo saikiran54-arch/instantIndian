@@ -328,6 +328,34 @@ img{
   
   }
 
+  /* Menu  - home page */
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 /* media queries */
@@ -545,6 +573,25 @@ img{
         width: 90px;
         left: 8%;
     }
+    .card1{
+      width: 20%;
+      height: 370px;
+    }
+    .card-button{
+      align-self: center;
+      margin-top: 12px;
+    }
+    .menucontainer{
+      height: 900px;
+
+    }
+    .menu-heading{
+      font-size: 48px;
+    }
+    .menu-text{
+      font-size: 24px;
+    }
+    
 
     
   }
