@@ -95,10 +95,36 @@ img{
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: var(--first-color-dark);
+    background-color: var(--first-color);
     
   }
 
+  /* preloader */
+  body {
+    /* background: url('https://www.studio-aegis.c') no-repeat center center; */
+    color: white;
+  }
+  .loader{
+    
+    background: white;
+    position: fixed;
+    /* background-size: contain; */
+  }
+  #preloader {
+    /* margin-top: 1%; */
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      overflow: hidden;
+      background: url('/img/loader.gif') no-repeat center center;
+   }
+
+   #content{
+    display: none;
+   }
+
+  
 
 /* NAVBAR */
 .nav{
@@ -135,6 +161,7 @@ img{
     padding-top: 10px;
     color:var(--text-color);
     font-weight: 900;
+    font-size: 1.3rem;
 }
 
 .nav__list li:hover{
@@ -146,6 +173,10 @@ img{
     font-size: 2rem;
     margin-left: .3rem;
     
+}
+.nav_home{
+  font-size: 1.3rem;
+  padding-right: 2px;
 }
 
 .nav__link{
@@ -167,6 +198,30 @@ img{
 .show-menu{
     top:var(--header-height);
     
+}
+
+.reg {
+  color: white;
+  background-color: var(--first-color-dark);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.log {
+  color: var(--first-color-dark);
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  /* border: 1px solid rgba(104, 85, 224, 1); */
+}
+
+button:hover {
+  color: white;
+  
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+  background-color: var(--first-color-dark);
 }
 
 
@@ -331,7 +386,12 @@ img{
 
 
   /* services - home page */
+  .container{
+    background-color:var(--first-color);
+    height: 500px;
+  }
   .services-heading{
+    padding-top: 20px;
     font-size: 36px;
     text-align: center;
     margin-top: 2%;
@@ -346,11 +406,13 @@ img{
     align-items: center;
     display: grid;
     place-items: center;
+    /* background-color: var(--first-color); */
     
   }
   .grid > article{
     
     /* background: #eee5e9; */
+    background: white;
     border: none;
     box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
     border-radius: 20px;
@@ -415,8 +477,10 @@ img{
   
   /* insipration menu - home page */
   .top_brands {
+    /* margin-top: 0; */
     position: relative;
-    background: var(--first-color);
+    /* background: var(--first-color); */
+    /* background-color: #f2f3f5; */
     width: 100%;
     height: auto;
     margin: auto;
@@ -426,7 +490,7 @@ img{
     justify-content: space-between; */
   }
   .brands_heading{
-    margin-top: 2%;
+    /* margin-top: 2%; */
     color: black;
     margin-left: 2%;
     font-size: 32px;
@@ -560,12 +624,14 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background: var(--first-color); */
+    /* background-color: whitesmoke; */
     /* border: 1px solid black; */
 }
 .header-menu{
     text-align: center;
-    margin-top:20px;
-    font-size: 44px;
+    margin-top:10px;
+    font-size: 28px;
     color: var(--text-color);
 }
 
@@ -596,10 +662,12 @@ img{
 .card-1{
     /* background: hsl(253, 55%, 52%); */
     background: var(--first-color);
+    
 }
 .card-1 .card__header{
   font-weight: 900;
   color: var(--text-color);
+  /* color: white; */
   font-size: 30px;
 }
 .card-1 .card__lead{
@@ -712,7 +780,7 @@ img{
   padding: 20px;
   font-size: 20px;
   font-weight: 900;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--first-color-dark);
   color: white;
   cursor: pointer;
@@ -947,6 +1015,247 @@ section{
 	height: 10px;
 	transition: all 300ms ease-in-out;
 }
+
+
+/* footer  */
+footer{
+  /* position: fixed; */
+  background: var(--first-color);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+/* footer::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100px;
+  height: 1px;
+  width: 100%;
+  /* background: #AFAFB6; */
+footer .content{
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 40px 40px 40px;
+}
+footer .content .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  height: 20%;
+  border: 2px solid var(--first-color);
+  margin-top: 5%;
+  padding: 20px;
+  
+}
+.content .top .logo-details{
+  color: var(--text-color);
+  font-size: 30px;
+}
+/* .content .top .logo-details .img{
+  
+} */
+.content .top .media-icons{
+  display: flex;
+}
+.content .top .media-icons a{
+  height: 40px;
+  width: 40px;
+  margin: 0 8px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.top .media-icons a:nth-child(1){
+  background: #4267B2;
+}
+.top .media-icons a:nth-child(1):hover{
+  color: #4267B2;
+  background: #fff;
+}
+.top .media-icons a:nth-child(2){
+  background: #1DA1F2;
+}
+.top .media-icons a:nth-child(2):hover{
+  color: #1DA1F2;
+  background: #fff;
+}
+.top .media-icons a:nth-child(3){
+  background: #E1306C;
+}
+.top .media-icons a:nth-child(3):hover{
+  color: #E1306C;
+  background: #fff;
+}
+.top .media-icons a:nth-child(4){
+  background: #0077B5;
+}
+.top .media-icons a:nth-child(4):hover{
+  color: #0077B5;
+  background: #fff;
+}
+.top .media-icons a:nth-child(5){
+  background: #FF0000;
+}
+.top .media-icons a:nth-child(5):hover{
+  color: #FF0000;
+  background: #fff;
+}
+footer .content .link-boxes{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+footer .content .link-boxes .box{
+  width: calc(100% / 5 - 10px);
+}
+.content .link-boxes .box .link_name{
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  position: relative;
+}
+.link-boxes .box .link_name::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 35px;
+  background: var(--text-color);
+}
+.content .link-boxes .box li{
+  margin: 6px 0;
+  list-style: none;
+}
+.content .link-boxes .box li a{
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.4s ease
+}
+.content .link-boxes .box li a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.content .link-boxes .input-box{
+  margin-right: 55px;
+}
+.link-boxes .input-box input{
+  height: 40px;
+  width: calc(100% + 55px);
+  outline: none;
+  border: 2px solid #AFAFB6;
+  background: #fff;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 5px;
+}
+.link-boxes .input-box input::placeholder{
+  color: #AFAFB6;
+  font-size: 16px;
+}
+.link-boxes .input-box input[type="button"]{
+  background: var(--text-color);
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.input-box input[type="button"]:hover{
+  opacity: 1;
+}
+footer .bottom-details{
+  width: 100%;
+  background: var(--text-color);
+}
+footer .bottom-details .bottom_text{
+  max-width: 1250px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a{
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.bottom-details .bottom_text a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.bottom-details .bottom_text a{
+  margin-right: 10px;
+}
+@media (max-width: 900px) {
+  footer .content .link-boxes{
+    flex-wrap: wrap;
+  }
+  footer .content .link-boxes .input-box{
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 700px){
+  footer{
+    position: relative;
+  }
+  .content .top .logo-details{
+    font-size: 26px;
+  }
+  .content .top .media-icons a{
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 3 - 10px);
+  }
+  footer .content .link-boxes .input-box{
+    width: 60%;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a{
+    font-size: 12px;
+  }
+}
+@media (max-width: 520px){
+  footer::before{
+    top: 145px;
+  }
+  footer .content .top{
+    flex-direction: column;
+  }
+  .content .top .media-icons{
+    margin-top: 16px;
+  }
+  footer .content .link-boxes .box{
+    width: calc(100% / 2 - 10px);
+  }
+  footer .content .link-boxes .input-box{
+    width: 100%;
+  }
+}
+
 
 
 

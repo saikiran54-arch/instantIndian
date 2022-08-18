@@ -117,3 +117,27 @@ btn_brands_right.addEventListener('click' , () => {
         btn_brands_right.style.display = "none";
     }
 })
+
+
+// preloader
+var preloader;
+
+function preload(opacity) {
+    if(opacity <= 0) {
+        showContent();
+    }
+    else {
+        preloader.style.opacity = opacity;
+        window.setTimeout(function() { preload(opacity - 0.09) }, 400);
+    }
+}
+
+function showContent() {
+    preloader.style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    preloader = document.getElementById('preloader');
+    preload(1);
+});
