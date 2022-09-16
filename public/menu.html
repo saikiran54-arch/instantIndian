@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="./src/swiper-bundle.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <!-- Compiled and minified CSS -->
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  -->
+
+    <link rel="stylesheet" href="/src/utilties.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/menu.css">
+    <title>Menu Page</title>
+</head>
+<body>
+
+    <header class="l-header" id="header">
+        
+        <!-- navbar -->
+        <navs class="nav bd-container">
+
+            <a href="/index.html" class="nav__logo">instantIndian</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/index.html" class="nav__link"><p><div class="nav_home bx bx-home"></div>Home</p></a></li>
+                    <li class="nav__item"><a href="/public/menu.html" class="nav__link"><p><div class="nav_home bx bx-book"></div>Menu</p></a></li>
+                    <li class="nav__item"><a href="/public/admin.html" class="nav__link"><p><div class="nav_home bx bx-info-circle"></div>Admin</p></a></li>
+                </ul>
+            </div>
+            <div class="nav__user">
+                <!-- <div class="nav__cart bx bxs-cart" id="nav-cart"></div> 
+                <div class="nav__user bx bxs-user" id="nav-id"></div> -->
+    
+                    <!-- <button class="log">Login/Signup  </button> -->
+                    <ul class="nav__list">
+                        <button class="reg-button modal-trigger "data-target="modal-login" style="margin-top: 1px; display: none;" id="login">Login/signup</button>
+                        <li class="nav__item" style="display: none;" id="cart"><a href="#Home" class="nav__link nav_home bx bx-cart">cart</a></li>
+                        <li class="nav__item" style="display: none;" id="acc"><a href="#Home" class="nav__link nav_home bx bx-user">Account</a></li>
+                        <button id="logout" class="reg-button logout-button" style="margin-top: 1px; margin-left: 20px; background-color: red;" style="display: none !important;">Logout</button>
+                    </ul>
+                    
+
+                    <!-- <button class="reg btn-primary modal-trigger" data-target="modal-signup">signup</button> -->
+
+                    <!-- <button class="btn-primary"></button> -->
+                    <div class="nav__toggle bx bx-menu" id="nav-toggle"></div>
+            </div>
+            
+
+        </navs>
+    </header>  
+    
+    
+    <div style="width: 100%; height:500px;">
+
+    </div>
+    <br>
+    <br>
+    <!-- first order -->
+    <div class="top_brands" style="background: #FAE5D3; padding:20px;">
+        <div class="brands_heading" style="text-align: center; font-weight: 500;">
+            Inspiration for your first order
+        </div>
+        <button class="btn_brands" id="btn_brands_left"></button>
+        <button class="btn_brands" id="btn_brands_right"></button>
+        <div class="brand_item" id="brand_item">
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png" alt="">
+                    </div>
+                    <h5>Biryani</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/2e6d86cd3b90906845c02b3eabf7bc141632716603.png" alt="">
+                    </div>
+                    <h5>Manchurian</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="img\r5.png" alt="">
+                    </div>
+                    <h5>Fried Rice</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png" alt="">
+                    </div>
+                    <h5>Dosa</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/52eb9796bb9bcf0eba64c643349e97211634401116.png
+                        " alt="">
+                    </div>
+                    <h5>Thali</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png" alt="">
+                    </div>
+                    <h5>Fried Rice</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png" alt="">
+                    </div>
+                    <h5>Chicken</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/dish_images/d19a31d42d5913ff129cafd7cec772f81639737697.png" alt="">
+                    </div>
+                    <h5>Biryani</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/2e6d86cd3b90906845c02b3eabf7bc141632716603.png" alt="">
+                    </div>
+                    <h5>Manchurian</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png" alt="">
+                    </div>
+                    <h5>Dosa</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/52eb9796bb9bcf0eba64c643349e97211634401116.png
+                        " alt="">
+                    </div>
+                    <h5>Thali</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png" alt="">
+                    </div>
+                    <h5>Fried Rice</h5>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="img">
+                        <img src="https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png" alt="">
+                    </div>
+                    <h5>Chicken</h5>
+                </a>
+            </li>
+            
+        </div>
+    </div>
+
+    <!-- menu -->
+    <div class="menu_showcard">
+
+
+   
+        <div class="menu_container">
+        
+           <h1 class="title"> On The Menu </h1>
+           <p class="title_parh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem molestias sapiente, excepturi dicta deleniti et, magnam nam placeat nostrum tempora laboriosam quam cum doloribus unde ut adipisci minus beatae vitae..</p>
+           <!-- <div class="selectMenu">   
+              <label for="">Menu Category</label>
+              <select name="menu_category" id="">
+                 <option value="All_menu">All Menu</option>
+                 <option value="Prue_plant">Prue Plant</option>
+                 <option value="Briyani">Briyani</option>
+                 <option value="Specials">Specials</option>
+                 <option value="Snacks">Snacks</option>
+              </select>
+           </div> -->
+        
+        
+           <!-- filter menu -->
+        
+          
+           <div class="wrapper">
+              <div id="search-container">
+                <input
+                  type="search"
+                  id="search-input"
+                  placeholder="Search product name here.."
+                />
+                <button id="search">Search</button>
+              </div>
+              <div id="buttons">
+                <button class="button-value" onclick="filterProduct('all')">All</button>
+                <button class="button-value" onclick="filterProduct('briyani')">
+                  briyani
+                </button>
+                <button class="button-value" onclick="filterProduct('curry')">
+                  curries
+                </button>
+                <button class="button-value" onclick="filterProduct('snacks')">
+                  snacks
+                </button>
+                <button class="button-value" onclick="filterProduct('northindian')">
+                  north indian
+                </button>
+              </div>
+            </div>
+        
+        
+        
+           <div class="products-container" id="product_container">
+        
+              <!-- <div class="product" data-name="p-1" id="product">
+                 <div class="image-container">
+                    <img src="/img/r2.png" alt="">
+                 </div>
+                 <div class="desp_container">
+                    <h3>Chicken Briyani</h3>
+                 <div class="product_desp">500cal | Non-Veg | single-serve</div>
+                 </div>
+              </div> -->
+
+                
+           </div>
+        
+        <div class="products-preview">
+        
+           <!-- <div class="preview" data-target="p-1">
+              <i class="fas fa-times"></i>
+              <img src="/img/r2.png" alt="">
+              <h3>chicken curry</h3>
+              <div class="stars">
+                 
+                 <span>reviews : </span>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star-half-alt"></i>
+                 <span>( 250 )</span>
+              </div>
+              <div class="prod_card_desp">
+                 <p class="prod_desp">what makes dish so special ?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quae ea? Explicabo aspernatur sed quo. Ullam porro nemo quis quos.</p>
+              </div>
+              <div class="prod_card_desp">
+                 <p class="prod_desp">Ingredients</p>
+              <p class="ingred">item1,item2,item3,item4</p>
+              </div>
+              
+              <div class="price">$2.00</div>
+              <div class="buttons">
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+           </div> -->
+        
+        
+        
+        
+
+           
+        
+           
+        </div>
+        
+        </div>
+
+
+        <!-- footer -->
+        <footer>
+            <div class="content">
+              <div class="top">
+                <div class="logo-details">
+                  <!-- <i class="fab fa-slack"></i> -->
+                  <span class="logo_name">InstantIndian</span>
+                </div>
+                <div class="media-icons">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+              <div class="link-boxes">
+                <ul class="box">
+                  <li class="link_name">Company</li>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Contact us</a></li>
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">Get started</a></li>
+                </ul>
+                <ul class="box">
+                  <li class="link_name">Services</li>
+                  <li><a href="#">App design</a></li>
+                  <li><a href="#">Web design</a></li>
+                  <li><a href="#">Logo design</a></li>
+                  <li><a href="#">Banner design</a></li>
+                </ul>
+                <ul class="box">
+                  <li class="link_name">Account</li>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">My account</a></li>
+                  <li><a href="#">Prefrences</a></li>
+                  <li><a href="#">Purchase</a></li>
+                </ul>
+                <ul class="box input-box">
+                  <li class="link_name">Subscribe</li>
+                  <li><input type="text" placeholder="Enter your email"></li>
+                  <li><input type="button" value="Subscribe"></li>
+                </ul>
+              </div>
+            </div>
+            <div class="bottom-details">
+              <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2022 <a href="#">instant indian</a>All rights reserved</span>
+                <span class="policy_terms">
+                  <a href="#">Privacy policy</a>
+                  <a href="#">Terms & condition</a>
+                </span>
+              </div>
+            </div>
+          </footer>
+
+
+</body>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+  import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut,
+signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
+  import { getFirestore, collection, addDoc, onSnapshot, doc, query, orderBy, getDocs, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyDWQbBwUTdcw-_C0lLcFxbP0ej4shx-4s8",
+    authDomain: "instantindian-10115.firebaseapp.com",
+    databaseURL: "https://instantindian-10115-default-rtdb.firebaseio.com",
+    projectId: "instantindian-10115",
+    storageBucket: "instantindian-10115.appspot.com",
+    messagingSenderId: "915082138910",
+    appId: "1:915082138910:web:a758c82ea458ac5ae1e50f",
+    measurementId: "G-YJDPN4EH5N"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  
+  const db = getFirestore(app);
+
+  // auth
+  onAuthStateChanged(auth,(user)=>{
+    var loginbtn = document.querySelector('#login');
+    var cart = document.querySelector('#cart');
+    var acc = document.querySelector('#acc');
+    var logoutbtn = document.querySelector('#logout');
+    if(user){
+        loginbtn.style.display = "none";
+        logoutbtn.style.display ="block";
+        cart.style.display = "block";
+        acc.style.display ="block";
+    }
+    else{
+        loginbtn.style.display="block";
+        logoutbtn.style.display="none";
+        cart.style.display = "none";
+        acc.style.display ="none";
+
+    }
+})
+const logout = document.querySelector(".logout-button");
+logout.addEventListener('click',(e)=>{
+    signOut(auth).then(()=>{
+        console.log("logout sucess");
+    }).catch((error)=>{
+        console.log("logout err",error.message);
+    })
+})
+
+
+
+
+
+
+
+  const colRef = collection(db, 'foodItems');
+
+  //query
+  const q = query(colRef, orderBy('createdAt'));
+
+  onSnapshot(q, (snapshot) => {
+        let foodItems = []
+        snapshot.docs.forEach((doc) => {
+            foodItems.push({ ...doc.data(), id: doc.id})
+        })
+        console.log(foodItems);
+        let i=0;
+        foodItems.forEach((foodItem,i) => {
+          
+          createCard(foodItem.item,foodItem.smalldescription,i);
+          previewCard(i);
+          i++;
+
+        })
+
+  var preveiwContainer = document.querySelector('.products-preview');
+  let previewBox = preveiwContainer.querySelectorAll('.preview');
+
+
+  document.querySelectorAll('.products-container .product').forEach(product =>{
+    product.onclick = () =>{
+    preveiwContainer.style.display = 'flex';
+    let name = product.getAttribute('data-name');
+    previewBox.forEach((preview) =>{
+      let target = preview.getAttribute('data-target');
+      if(name == target){
+        preview.classList.add('active');
+      }
+    });
+  };
+  
+
+previewBox.forEach(close =>{
+  close.querySelector('.fa-times').onclick = () =>{
+    close.classList.remove('active');
+    preveiwContainer.style.display = 'none';
+  };
+});
+
+});
+        
+          
+
+    })
+
+
+  function createCard(name,desp,i){      
+      const parent = document.getElementById("product_container");
+      const child = document.createElement('div');
+      child.className = "product";
+      child.id = "product";
+      child.dataset.name = "p-" + i;
+      parent.appendChild(child);
+
+      const child1 = document.createElement('img');
+      child1.className = "image-container";
+      child1.src = "http://127.0.0.1:5502/img/r2.png"
+      child.appendChild(child1);
+
+      const child2 = document.createElement('div');
+      const title = document.createElement('h3');
+      const textNode = document.createTextNode(name);
+      child2.appendChild(title)
+      title.appendChild(textNode);
+      child2.className = "desp_container";
+      child.appendChild(child2)
+
+
+      const child3 = document.createElement('p');
+      const despnode = document.createTextNode(desp);
+      child3.className = "product_desp";
+      child3.appendChild(despnode)
+      child2.appendChild(child3);
+
+    const product = child;
+
+
+
+  }
+
+
+  function previewCard(i){
+
+  
+  var preveiwContainer = document.querySelector('.products-preview');
+
+  let child = document.createElement("div");
+  child.className = "preview";
+  child.dataset.target = "p-" + i;
+  preveiwContainer.appendChild(child);
+
+  let child1 = document.createElement("i");
+  child1.className = "fas fa-times";
+  child.appendChild(child1);
+
+  let child2 = document.createElement("img");
+  child2.src = "/img/r2.png";
+  child.appendChild(child2);
+
+  let child3 = document.createElement("h3");
+  let titlenode = document.createTextNode("chicken briyani");
+  child3.appendChild(titlenode);
+  child.appendChild(child3);
+
+  let child4 = document.createElement("div");
+  let des01 = document.createElement("p");
+  let des02 = document.createElement("p");
+  let des001 = document.createTextNode("what makes dish so special ?");
+  let des002 = document.createTextNode("jhsfhajidjajklsd adjoadnakdjbdj");
+  child4.className = "prod_card_desp";
+  des01.className = "prod_desp";
+  des01.appendChild(des001);
+  des02.appendChild(des002);
+  child4.appendChild(des01);
+  child4.appendChild(des02);
+  child.appendChild(child4);
+
+
+  let child5 = document.createElement("div");
+  let des03 = document.createElement("p");
+  let des04 = document.createElement("p");
+  let des003 = document.createTextNode("ingredients");
+  let des004 = document.createTextNode("item1,item2,item3,item4");
+  child5.className = "prod_card_desp";
+  des03.className = "prod_desp";
+  des04.className = "ingred";
+  des03.appendChild(des003);
+  des04.appendChild(des004);
+  child5.appendChild(des03);
+  child5.appendChild(des04);
+  child.appendChild(child5);
+
+  let child6 = document.createElement("div");
+  let PriceNode = document.createTextNode("$ 2.00");
+  child6.appendChild(PriceNode);
+  child6.className = "price";
+  child.appendChild(child6);
+
+  let child7 = document.createElement("div");
+  child7.className = "buttons";
+  let alink = document.createElement("a");
+  let atext = document.createTextNode("Add to cart");
+  alink.className = "cart";
+  alink.appendChild(atext);
+  child7.appendChild(alink);
+  child.appendChild(child7);
+
+  }
+
+
+
+
+
+  
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var preveiwContainer = document.querySelector('.products-preview');
+
+
+
+
+
+</script>
+<!-- swiper js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="assets/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<!-- javacript -->
+
+<script src="/dist/bundle.js"></script>
+
+
+</html>

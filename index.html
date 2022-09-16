@@ -7,6 +7,7 @@
     
     <!-- icons -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -16,19 +17,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <!-- css -->
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+   <!-- css -->
     <link rel="stylesheet" href="/src/utilties.css">
     <link rel="stylesheet" href="/src/style.css">
     
     <title>instantIndian</title>
+
 </head>
 
 <body>
 
     
-        <div id="preloader"></div>
+        <!-- <div id="spreloader"></div>
 
-        <div id="content">
+        <div id="scontent"> -->
 
         
     
@@ -37,33 +41,93 @@
     <header class="l-header" id="header">
         
         <!-- navbar -->
-        <nav class="nav bd-container">
+        <navs class="nav bd-container">
 
             <a href="#" class="nav__logo">instantIndian</a>
             
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    
                     <li class="nav__item"><a href="#Home" class="nav__link"><p><div class="nav_home bx bx-home"></div>Home</p></a></li>
-                    <li class="nav__item"><a href="#Menu" class="nav__link"><p><div class="nav_home bx bx-book"></div>Menu</p></a></li>
-                    <li class="nav__item"><a href="#About" class="nav__link"><p><div class="nav_home bx bx-info-circle"></div>About Us</p></a></li>
+                    <li class="nav__item"><a href="/public/menu.html" class="nav__link"><p><div class="nav_home bx bx-book"></div>Menu</p></a></li>
+                    <li class="nav__item"><a href="/public/admin.html" class="nav__link"><p><div class="nav_home bx bx-info-circle"></div>Admin</p></a></li>
+                    <!-- <li class="nav__item"><a href="/public/admin.html" class="nav__link"><p><div class="nav_home bx bx-info-circle"></div>Admin</p></a></li> -->
                 </ul>
             </div>
-            <div class="nav__icons">
+            <div class="nav__user">
                 <!-- <div class="nav__cart bx bxs-cart" id="nav-cart"></div> 
                 <div class="nav__user bx bxs-user" id="nav-id"></div> -->
-                <div>
-                    <button class="log">Login</button>
-                    <button class="reg">Sign up</button>
+    
+                    <!-- <button class="log">Login/Signup  </button> -->
+                    <ul class="nav__list">
+                        <button class="reg-button modal-trigger "data-target="modal-login" style="margin-top: 1px; display: none;" id="login">Login/signUp</button>
+                        <li class="nav__item" style="display: none;" id="cart"><a href="#Home" class="nav__link nav_home bx bx-cart">cart</a></li>
+                        <li class="nav__item" style="display: none;" id="acc"><a href="/public/profile.html" class="nav__link nav_home bx bx-user">Account</a></li>
+                        <button id="logout" class="reg-button logout-button" style="margin-top: 1px; margin-left: 20px; background-color: red;" style="display: none !important;">Logout</button>
+                    </ul>
                     
-                  </div>
-                <div class="nav__toggle bx bx-menu" id="nav-toggle"></div>
+
+                    <!-- <button class="reg btn-primary modal-trigger" data-target="modal-signup">signup</button> -->
+
+                    <!-- <button class="btn-primary"></button> -->
+                    <div class="nav__toggle bx bx-menu" id="nav-toggle"></div>
             </div>
+            
 
-        </nav>
-    </header>
+        </navs>
+    </header>  
+
+    <!-- <div class="container modal" id="modal-login"></div>       -->
+    <div class="container modal" id="modal-login">
+        <div class="form-container sign-up-container">
+            <form action="#" class="signupform">
+                <p class="form-heading">Create Account</p>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f f-icons"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g f-icons"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in f-icons"></i></a>
+                </div>
+                <span>or <br> use your email for registration</span>
+                <input type="text" placeholder="username" name="username" required/>
+                <input type="email" placeholder="abc@gmail.com" name="email"  />
+                <input type="password" placeholder="Password" name="password"/>
+                <!-- <input type="tel" name="phnumber" id="phnumber" placeholder="Phone Number" name="phnumber"> -->
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" class="loginform">
+                <class class="form-heading">Sign-in</class>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f f-icons"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g f-icons"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in f-icons"></i></a>
+                </div>
+                <span>or <br> use your account</span>
+                <input type="email" placeholder="abc@gmail.com" name="email" />
+                <input type="password" placeholder="Password"  name="password"/>
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 
+    <!-- offers     -->
     <div class="hero">
 
         <div class="hero2">
@@ -111,12 +175,12 @@
 
     <!-- insiprational orders  -->
     <div class="top_brands">
-        <div class="brands_heading">
+        <div class="brands_heading" style="font-weight: 500;">
             Inspiration for your first order
         </div>
         <button class="btn_brands" id="btn_brands_left"></button>
         <button class="btn_brands" id="btn_brands_right"></button>
-        <div class="brand_item" id="brand_item">
+        <div class="brand_item" id="brand_item" style="padding-bottom: 20px;">
             <li>
                 <a href="#">
                     <div class="img">
@@ -228,7 +292,7 @@
     </div>
 
     <!-- services  -->
-    <div class="container">
+    <div class="sd-container">
         <div class="services-heading">
             Our Amazing Services
         </div>
@@ -306,6 +370,55 @@
             <button>View Menu</button>
         </div>
     </div>
+
+
+    <!-- f a q section -->
+    <div class="accordion">
+        <div class="faq_title">Common Questions</div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">What do you mean by Accordion?</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+
+            <p class="description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
+            </p>
+        </div>
+
+        <div class="accordion-content">
+            <header>
+                <span class="title">What do you mean by Accordion?</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+
+            <p class="description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">What do you mean by Accordion?</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+
+            <p class="description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto neque, sed inventore illum ut quis ducimus deleniti temporibus maiores? At nisi sed pariatur cupiditate quidem quod adipisci aut, eos quis minima voluptates non veniam ipsam quasi architecto ducimus error eum id ab, suscipit doloribus, ut accusantium consequuntur voluptate! Unde, hic sed rerum officia totam id libero officiis nihil rem sequi porro labore praesentium repudiandae a blanditiis molestias nisi beatae natus! Ea, ut voluptates, natus harum nesciunt odio hic eveniet reprehenderit veritatis, possimus tempora magni soluta eaque quidem neque maxime nostrum sapiente commodi? Earum ex cumque cupiditate dicta, tempora temporibus quaerat.
+            </p>
+        </div>
+        <div class="accordion-content">
+            <header>
+                <span class="title">What do you mean by Accordion?</span>
+                <i class="fa-solid fa-plus"></i>
+            </header>
+
+            <p class="description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
+            </p>
+        </div>
+    </div>
+    
    
 
     <!-- customer feedback  -->
@@ -340,7 +453,7 @@
                                         <a href="#" class="text-link"></a>
                                         <div class="testimonials-avatar">
                                             <h3>John Doe</h3>
-                                            <h4>Owner</h4>
+                                            
                                         </div>
                                     </div>
                                     <div class="testimonials-text-after"><i class="fa fa-quote-left"></i></div> 
@@ -476,7 +589,7 @@
         </div>
         <div class="bottom-details">
           <div class="bottom_text">
-            <span class="copyright_text">Copyright © 2021 <a href="#">instant indian</a>All rights reserved</span>
+            <span class="copyright_text">Copyright © 2022 <a href="#">instant indian</a>All rights reserved</span>
             <span class="policy_terms">
               <a href="#">Privacy policy</a>
               <a href="#">Terms & condition</a>
@@ -485,23 +598,53 @@
         </div>
       </footer>
 
-    </div>
-
-    
-
-   
-
-
-
-   
-    
+    </div>  
 </body>
+    <script>
 
+    </script>
     <!-- swiper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <!-- javacript -->
-    <script src="assets/main.js"></script>
+    
+    <script src="/dist/bundle.js"></script>
+
+    <script>
+        // faq
+        const accordionContent = document.querySelectorAll(".accordion-content");
+
+accordionContent.forEach((item, index) => {
+    let header = item.querySelector("header");
+    header.addEventListener("click", () =>{
+        item.classList.toggle("open");
+
+        let description = item.querySelector(".description");
+        if(item.classList.contains("open")){
+            description.style.height = `${description.scrollHeight}px`; //scrollHeight property returns the height of an element including padding , but excluding borders, scrollbar or margin
+            item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+        }else{
+            description.style.height = "0px";
+            item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+        }
+        removeOpen(index); //calling the funtion and also passing the index number of the clicked header
+    })
+})
+
+function removeOpen(index1){
+    accordionContent.forEach((item2, index2) => {
+        if(index1 != index2){
+            item2.classList.remove("open");
+
+            let des = item2.querySelector(".description");
+            des.style.height = "0px";
+            item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+        }
+    })
+}
+
+    </script>
 
 </html>
