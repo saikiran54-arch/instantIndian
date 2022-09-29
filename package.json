@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/saikiran54-arch/instantIndian#readme",
   "dependencies": {
+    "codyhouse-framework": "^3.0.6",
+    "express": "^4.18.1",
     "firebase": "^9.9.3"
   },
   "devDependencies": {

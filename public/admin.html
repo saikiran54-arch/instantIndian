@@ -150,6 +150,14 @@
                     <div class="order">
                         <div class="head"></div>
                         <div class="content">
+						<div>
+							<label>Image Name</label ><input type="text" id="namebox"><label id="extlab"></label >
+								<br> <br>
+								<img id="myimg"> <label id="upprogress"></label ><br> <br>
+								<button id="selbtn">Select Image</button>
+								<button id="upbtn">Upload Image</button > 
+						</div>
+						
                           <form action="#" class="add">
                             <div class="user-details">
                               <div class="input-box">
@@ -175,6 +183,10 @@
                                 <span class="details">Price</span>
                                 <input type="number" placeholder="Enter price of dish" required name="price">
                               </div>
+							  <div class="input-box">
+								<span class="details">ImageLink</span>
+								<input type="text" placeholder="image link" name="imglink" required id="imglink">
+							  </div>
                               <div class="input-box">
                                 <span class="details">description</span>
                                 <input type="text" placeholder="enter descprition" name="about" required>
@@ -404,10 +416,10 @@ switchMode.addEventListener('change', function () {
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
-  import { getFirestore, collection, addDoc, onSnapshot, doc, query, orderBy, getDocs, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, deleteDoc, doc, getDoc, setDoc,query,orderBy,onSnapshot, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js"
   import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut,
 signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js";
-import { ref,deleteObject,getDownloadURL,uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
+import { ref,deleteObject,getDownloadURL,uploadBytesResumable,getStorage } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-storage.js";
 
   
 
@@ -426,6 +438,18 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
+
+   // variables
+   var files = [];
+  var reader = new FileReader();
+  var namebox = document.getElementById('namebox');
+  var extlab = document.getElementById('extlab');
+  var myimg = document.getElementById('myimg');
+  var proglab = document.getElementById('upprogress');
+  var SelBtn = document.getElementById('selbtn');
+  var UpBtn = document.getElementById('upbtn');
+  var DownBtn = document.getElementById('downbtn');
+  var imgLink = document.getElementById("imglink");
 
 
   //autheniaction
@@ -515,6 +539,106 @@ const firebaseConfig = {
 
 
 
+	var input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e =>{
+            files = e.target.files;
+
+            var extention = GetExtName(files[0]);
+            var name = GetFileName(files[0]);
+
+            namebox.value = name;
+            extlab.innerHTML = extention;
+
+            reader.readAsDataURL(files[0]);
+        }
+        reader.onload = function(){
+            myimg.src = reader.result;
+        }
+
+        // selection
+        
+        SelBtn.onclick = () =>{
+            input.click();
+        }
+        function GetExtName(file) {
+            var temp = file.name.split('.');
+            var ext = temp.slice((temp.length-1),(temp.length));
+            return '.' + ext[0];
+        }
+
+        function GetFileName(file) {
+            var temp = file.name.split(' .');
+            var fname = temp.slice(0,-1).join('.');
+            return fname;
+        }
+
+
+        // upload process============
+		const storage = getStorage();
+        
+        async function UploadProcess(){
+            var ImgToUpload = files[0];
+
+            var ImgName = namebox.value + extlab.innerHTML;
+
+            const metaData = {
+                contentType : ImgToUpload.type
+            }
+
+            
+
+            const storageRef = ref(storage, "Images/" +ImgName);
+
+            const UploadTask = uploadBytesResumable(storageRef,ImgToUpload,metaData);
+
+            UploadTask.on('state-changed',(snapshot)=>{
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                proglab.innerHTML = "upload "+progress +"%";
+            },
+            (error)=>{
+                alert("error in uplaoding")
+            },
+            ()=>{
+                getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
+                    imgLink.value = downloadURL;
+                    console.log(downloadURL);
+                });
+            }
+            );
+            
+
+        }
+        
+
+        
+
+        async function SaveURLtoFirestore(url){
+            var name = namebox.value;
+            var ext = extlab.innerHTML;
+            var ref = doc(clouddb, "ImageLinks/"+name);
+            await setDoc(ref,{
+                ImageName: (name+ext),
+                ImageURL: url
+            })
+        }
+
+        async function GetImagefromFirestore(){
+            var name = namebox.value;
+            var ref = doc(clouddb, "ImageLinks/"+name);
+            const docSnap = await getDoc(ref);
+            if(docSnap.exists()){
+            myimg.src = docSnap.data().ImageURL;
+            I
+            }
+        }
+
+        UpBtn.onclick = UploadProcess;
+        // DownBtn.onclick = GetImagefromFirestore;
+
+
+
 
 
 
@@ -529,8 +653,10 @@ const firebaseConfig = {
             smalldescription: addItemForm.smalldescription.value,
             about : addItemForm.about.value,
             ingredients: addItemForm.ingredients.value,
+			ImageURL : addItemForm.imglink.value,
             // calories: addItemForm.calories.value,
             price: addItemForm.price.value,
+			inCart : parseInt(0),
             createdAt: serverTimestamp()
         })
         .then(()=> {
@@ -547,19 +673,19 @@ const firebaseConfig = {
         console.log(foodItems);
     })
 
-    const fetchForm = document.querySelector(".fetch");
-    const foodInfo = document.querySelector(".food_info");
-    fetchForm.addEventListener('submit',(e)=>{
-        e.preventDefault();
-        const docRef = doc(db,'foodItems',fetchForm.food_id.value);
-        getDoc(docRef)
-        .then((doc)=>{
-            // foodInfo.innerText = doc.data().ingredients;
-            const child = document.createElement('h1');
-            foodInfo.append(child);
-            child.innerHTML = doc.data().item;
-        })
-    })
+    // const fetchForm = document.querySelector(".fetch");
+    // const foodInfo = document.querySelector(".food_info");
+    // fetchForm.addEventListener('submit',(e)=>{
+    //     e.preventDefault();
+    //     const docRef = doc(db,'foodItems',fetchForm.food_id.value);
+    //     getDoc(docRef)
+    //     .then((doc)=>{
+    //         // foodInfo.innerText = doc.data().ingredients;
+    //         const child = document.createElement('h1');
+    //         foodInfo.append(child);
+    //         child.innerHTML = doc.data().item;
+    //     })
+    // })
 
 
     

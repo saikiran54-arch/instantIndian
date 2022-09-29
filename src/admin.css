@@ -526,6 +526,13 @@ body {
 
 
 /* form */
+
+#myimg{
+	width: 200px;
+	height: 200px;
+	border: 2px solid black;
+}
+
 .container{
 	max-width: 700px;
 	width: 100%;

@@ -5,18 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     
+  
+
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
      <link rel="stylesheet" href="./src/swiper-bundle.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css">
      <!-- Compiled and minified CSS -->
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  -->
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
+   
+
+
 
     <link rel="stylesheet" href="/src/utilties.css">
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/src/menu.css">
+
     <title>Menu Page</title>
 </head>
 <body>
@@ -42,7 +50,7 @@
                     <!-- <button class="log">Login/Signup  </button> -->
                     <ul class="nav__list">
                         <button class="reg-button modal-trigger "data-target="modal-login" style="margin-top: 1px; display: none;" id="login">Login/signup</button>
-                        <li class="nav__item" style="display: none;" id="cart"><a href="#Home" class="nav__link nav_home bx bx-cart">cart</a></li>
+                        <li class="nav__item addtocart" style="display: none;" id="cart"><a href="/public/addtocart.html" class="nav__link nav_home bx bx-cart " data-toggle="modal" data-target="#cartModal">cart</a><span style="background-color: brown; color: white; border-radius: 40%; ">0</span></li>
                         <li class="nav__item" style="display: none;" id="acc"><a href="#Home" class="nav__link nav_home bx bx-user">Account</a></li>
                         <button id="logout" class="reg-button logout-button" style="margin-top: 1px; margin-left: 20px; background-color: red;" style="display: none !important;">Logout</button>
                     </ul>
@@ -64,6 +72,8 @@
     </div>
     <br>
     <br>
+
+   
     <!-- first order -->
     <div class="top_brands" style="background: #FAE5D3; padding:20px;">
         <div class="brands_heading" style="text-align: center; font-weight: 500;">
@@ -91,7 +101,7 @@
             <li>
                 <a href="#">
                     <div class="img">
-                        <img src="img\r5.png" alt="">
+                        <!-- <img src="img\r5.png" alt=""> -->
                     </div>
                     <h5>Fried Rice</h5>
                 </a>
@@ -236,7 +246,7 @@
         
            <div class="products-container" id="product_container">
         
-              <!-- <div class="product" data-name="p-1" id="product">
+              <!-- <div class="product" data-name="p-7" id="product">
                  <div class="image-container">
                     <img src="/img/r2.png" alt="">
                  </div>
@@ -251,7 +261,7 @@
         
         <div class="products-preview">
         
-           <!-- <div class="preview" data-target="p-1">
+           <!-- <div class="preview" data-target="p-7">
               <i class="fas fa-times"></i>
               <img src="/img/r2.png" alt="">
               <h3>chicken curry</h3>
@@ -276,7 +286,7 @@
               
               <div class="price">$2.00</div>
               <div class="buttons">
-                 <a href="#" class="cart">add to cart</a>
+                 <a href="#" class="cart add-cart">add to cart</a>
               </div>
            </div> -->
         
@@ -290,6 +300,8 @@
         </div>
         
         </div>
+
+
 
 
         <!-- footer -->
@@ -350,6 +362,10 @@
 
 
 </body>
+
+
+
+
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
@@ -415,20 +431,41 @@ logout.addEventListener('click',(e)=>{
   //query
   const q = query(colRef, orderBy('createdAt'));
 
+
+  var localfoodItems = [];
+  
+
   onSnapshot(q, (snapshot) => {
         let foodItems = []
         snapshot.docs.forEach((doc) => {
             foodItems.push({ ...doc.data(), id: doc.id})
         })
         console.log(foodItems);
+        console.log(typeof foodItems);
+        localfoodItems = {...foodItems};
+        // console.log(length(localfoodItems));
+        console.log(localfoodItems);
+
         let i=0;
         foodItems.forEach((foodItem,i) => {
           
-          createCard(foodItem.item,foodItem.smalldescription,i);
-          previewCard(i);
+          createCard(foodItem.item,foodItem.smalldescription,foodItem.ImageURL,i);
+          previewCard(foodItem.item,foodItem.about,foodItem.price,foodItem.ingredients,foodItem.ImageURL,i);
           i++;
 
         })
+        var carts = document.querySelectorAll(".add-cart");
+
+        for(let i=0;i<carts.length;i++){
+          carts[i].addEventListener('click',()=>{
+            cartNumbers(localfoodItems[i]);
+            totalCost(localfoodItems[i]);
+        })
+}
+
+        
+
+        console.log(localfoodItems);
 
   var preveiwContainer = document.querySelector('.products-preview');
   let previewBox = preveiwContainer.querySelectorAll('.preview');
@@ -461,7 +498,7 @@ previewBox.forEach(close =>{
     })
 
 
-  function createCard(name,desp,i){      
+  function createCard(name,desp,link,i){      
       const parent = document.getElementById("product_container");
       const child = document.createElement('div');
       child.className = "product";
@@ -471,7 +508,7 @@ previewBox.forEach(close =>{
 
       const child1 = document.createElement('img');
       child1.className = "image-container";
-      child1.src = "http://127.0.0.1:5502/img/r2.png"
+      child1.src = `${link}`;
       child.appendChild(child1);
 
       const child2 = document.createElement('div');
@@ -496,7 +533,7 @@ previewBox.forEach(close =>{
   }
 
 
-  function previewCard(i){
+  function previewCard(name,about,price,ingredients,link,i){
 
   
   var preveiwContainer = document.querySelector('.products-preview');
@@ -511,11 +548,11 @@ previewBox.forEach(close =>{
   child.appendChild(child1);
 
   let child2 = document.createElement("img");
-  child2.src = "/img/r2.png";
+  child2.src = link;
   child.appendChild(child2);
 
   let child3 = document.createElement("h3");
-  let titlenode = document.createTextNode("chicken briyani");
+  let titlenode = document.createTextNode(name);
   child3.appendChild(titlenode);
   child.appendChild(child3);
 
@@ -523,7 +560,7 @@ previewBox.forEach(close =>{
   let des01 = document.createElement("p");
   let des02 = document.createElement("p");
   let des001 = document.createTextNode("what makes dish so special ?");
-  let des002 = document.createTextNode("jhsfhajidjajklsd adjoadnakdjbdj");
+  let des002 = document.createTextNode(about);
   child4.className = "prod_card_desp";
   des01.className = "prod_desp";
   des01.appendChild(des001);
@@ -537,7 +574,7 @@ previewBox.forEach(close =>{
   let des03 = document.createElement("p");
   let des04 = document.createElement("p");
   let des003 = document.createTextNode("ingredients");
-  let des004 = document.createTextNode("item1,item2,item3,item4");
+  let des004 = document.createTextNode(ingredients);
   child5.className = "prod_card_desp";
   des03.className = "prod_desp";
   des04.className = "ingred";
@@ -548,7 +585,7 @@ previewBox.forEach(close =>{
   child.appendChild(child5);
 
   let child6 = document.createElement("div");
-  let PriceNode = document.createTextNode("$ 2.00");
+  let PriceNode = document.createTextNode("$ "+price);
   child6.appendChild(PriceNode);
   child6.className = "price";
   child.appendChild(child6);
@@ -557,7 +594,9 @@ previewBox.forEach(close =>{
   child7.className = "buttons";
   let alink = document.createElement("a");
   let atext = document.createTextNode("Add to cart");
-  alink.className = "cart";
+  
+  alink.classList = "cart add-cart";
+  // alink.href = "#";
   alink.appendChild(atext);
   child7.appendChild(alink);
   child.appendChild(child7);
@@ -565,6 +604,90 @@ previewBox.forEach(close =>{
   }
 
 
+
+
+
+
+function onLoadCartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+
+    if(productNumbers){
+        document.querySelector('.addtocart span').textContent = productNumbers;
+    }
+}
+
+function cartNumbers(product){
+    
+      let productNumbers = localStorage.getItem('cartNumbers');
+      productNumbers = parseInt(productNumbers);
+      
+      if(productNumbers){
+          localStorage.setItem('cartNumbers',productNumbers+1);
+          document.querySelector('.addtocart span').textContent = productNumbers+1;
+        }else{
+          localStorage.setItem('cartNumbers',1);
+          document.querySelector('.addtocart span').textContent = 1;
+      }
+      setItems(product);
+}
+
+
+function setItems(product){
+  let cartItems = localStorage.getItem('productsInCart');
+  cartItems = JSON.parse(cartItems);
+  if(cartItems!=null){
+    if(cartItems[product.tag]==undefined){
+      cartItems = {
+        ...cartItems,
+        [product.item] : product
+      }
+    }
+    cartItems[product.item].inCart +=1;
+  }else{
+    product.inCart =1;
+    cartItems = {
+      [product.item] : product
+    }
+  }
+  localStorage.setItem("productsInCart",JSON.stringify(cartItems));
+}
+
+
+
+function totalCost(product){ 
+  let cartCost = localStorage.getItem('totalCost');
+  if(cartCost!= null){
+    cartCost = Number(cartCost);
+    localStorage.setItem("totalCost",cartCost+Number(product.price)); 
+  }else{
+    localStorage.setItem("totalCost",product.price);
+  }
+  let totalCartCost = localStorage.getItem('totalCost');
+  console.log("My cartCost is",totalCartCost);
+}
+
+
+
+
+
+
+
+
+
+
+onLoadCartNumbers();
+
+
+  
+
+  
+
+  
+  
+      
+      
+
+  
 
 
 
@@ -593,14 +716,20 @@ previewBox.forEach(close =>{
 
 
 </script>
+
+
+
+
 <!-- swiper js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="assets/swiper-bundle.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
 <!-- javacript -->
 
 <script src="/dist/bundle.js"></script>
+<script src="/assets/menu.js"></script>
 
 
 </html>

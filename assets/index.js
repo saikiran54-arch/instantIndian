@@ -166,3 +166,7 @@ btn_brands_right.addEventListener('click' , () => {
 //     preloader = document.getElementById('preloader');
 //     preload(1);
 // });
+
+
+
+// addtocart

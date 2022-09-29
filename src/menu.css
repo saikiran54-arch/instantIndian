@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 a{
@@ -50,6 +51,31 @@ body{
    font-size: 1.5rem;
    margin-bottom: 1.2rem;
 } */
+
+.table-image thead td, th {
+       border: 0;
+       color: #666;
+       font-size: 0.8rem;
+     }
+   
+   
+.table-image   td, th {
+     vertical-align: middle;
+     text-align: center;
+}
+     
+.qty {
+       max-width: 2rem;
+     }
+ 
+ 
+ .price {
+   margin-left: 1rem;
+ }
+ 
+ .modal-footer {
+   padding-top: 0rem;
+ }
 
 
 /* select menu */
@@ -271,12 +297,14 @@ body{
    font-size: 1.4rem;
    color:#444;
    border:.1rem solid #444;
+   cursor: pointer;
 }
 
 .products-preview .preview .buttons a.cart{
    background: #444;
    color:#fff;
    text-align: center;
+
 }
 
 .products-preview .preview .buttons a.cart:hover{

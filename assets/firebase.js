@@ -171,3 +171,5 @@ fetchForm.addEventListener('submit',(e)=>{
         child.innerHTML = doc.data().item;
     })
 })
+
+console.log("hello")

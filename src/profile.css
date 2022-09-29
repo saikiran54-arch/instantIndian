@@ -10,3 +10,10 @@
 .eprofile-heading{
     font-weight: 900;  
 }
+
+.main-body{
+    width: inherit;
+    border: 1px solid black;
+    height: 180px;
+    
+}
