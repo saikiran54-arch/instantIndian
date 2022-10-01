@@ -1640,9 +1640,9 @@ footer .bottom-details .bottom_text{
 
 /* media query-1 */
 @media (min-width: 480px) and (max-width: 767px) {
-  body{
+  /* body{
     background-color: black;
-  }
+  } */
 
 }
 
